@@ -24,7 +24,7 @@ struct ContentView: View {
     @State var isBtnVsbl : Bool = true
     
     
-   let categorias : [Category] = [Category(name: "De Casa", color: "blue"), Category(name: "Escolar", color: "green"), Category(name: "Religioso", color: "yellow"), Category(name: "Do Trabalho", color: "red"), Category(name: "Animais de Estimação", color: "pink")]
+    let categorias : [Category] = [Category(name: "De Casa", color: .blue), Category(name: "Escolar", color: .green), Category(name: "Religioso", color: .yellow), Category(name: "Do Trabalho", color: .red), Category(name: "Animais de Estimação", color: .pink)]
     
     var body: some View {
         
@@ -74,12 +74,15 @@ struct ContentView: View {
             
             Section{
                 ForEach(categories){ categ in
-                    CategoryView(categ)
+                    CategoryView(category: categ)
                 }
             } header: {
                 HStack{
                     Text("Categorias")
                 }
+            }
+            .onAppear {
+                print(categories.count)
             }
             
             Section{

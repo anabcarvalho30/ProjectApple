@@ -30,7 +30,8 @@ struct AddCategoryView: View {
                         Text("")
                     })
                     Button{
-                        let category = Category(name: category_name, color: category_color.description)
+                        let category = Category(name: category_name, color:category_color)
+                        print(category)
                         if category_name != ""{
                             modelContext.insert(category)
                         }
